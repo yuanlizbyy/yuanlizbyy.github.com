@@ -4,7 +4,7 @@
   <title><![CDATA[不破不力]]></title>
   <link href="http://yuan.li/atom.xml" rel="self"/>
   <link href="http://yuan.li/"/>
-  <updated>2013-01-28T01:54:56+08:00</updated>
+  <updated>2013-01-28T02:03:46+08:00</updated>
   <id>http://yuan.li/</id>
   <author>
     <name><![CDATA[Yuan Li]]></name>
@@ -12,5 +12,14 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hello World]]></title>
+    <link href="http://yuan.li/blog/2013/01/28/hello-world/"/>
+    <updated>2013-01-28T02:02:00+08:00</updated>
+    <id>http://yuan.li/blog/2013/01/28/hello-world</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
 </feed>
