@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[yuan.li]]></title>
-  <link href="http://yuan.li/atom.xml" rel="self"/>
+  <title><![CDATA[Category: iOS | yuan.li]]></title>
+  <link href="http://yuan.li/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://yuan.li/"/>
   <updated>2013-01-29T17:39:11+08:00</updated>
   <id>http://yuan.li/</id>
@@ -23,15 +23,6 @@
 <p><img src="https://raw.github.com/yuanlizbyy/YLActivityIndicatorView/master/facebook_loading.gif"></p>
 
 <p>并且可以调整速度、尺寸、小点的个数。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Hello World]]></title>
-    <link href="http://yuan.li/blog/2013/01/28/hello-world/"/>
-    <updated>2013-01-28T02:02:00+08:00</updated>
-    <id>http://yuan.li/blog/2013/01/28/hello-world</id>
-    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
