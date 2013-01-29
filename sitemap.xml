@@ -1,20 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://yuan.li/blog/2013/01/28/hello-world/</loc>
-        <lastmod>2013-01-29T16:34:05+08:00</lastmod>
+        <loc>http://yuan.li/blog/2013/01/01/hello-world/</loc>
+        <lastmod>2013-01-30T00:14:07+08:00</lastmod>
     </url>
     <url>
         <loc>http://yuan.li/blog/2013/01/29/facebook-like-activity-indicator-for-ios/</loc>
         <lastmod>2013-01-29T17:57:02+08:00</lastmod>
     </url>
     <url>
+        <loc>http://yuan.li/about/</loc>
+        <lastmod>2013-01-30T00:10:39+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://yuan.li/blog/archives/</loc>
-        <lastmod>2013-01-29T17:57:02+08:00</lastmod>
+        <lastmod>2013-01-30T00:14:07+08:00</lastmod>
     </url>
     <url>
         <loc>http://yuan.li/</loc>
-        <lastmod>2013-01-29T17:57:02+08:00</lastmod>
+        <lastmod>2013-01-30T00:14:07+08:00</lastmod>
     </url>
     <url>
         <loc>http://yuan.li/robots.txt</loc>
