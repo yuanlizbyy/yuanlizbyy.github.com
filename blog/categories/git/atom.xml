@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[yuan.li]]></title>
-  <link href="http://yuan.li/atom.xml" rel="self"/>
+  <title><![CDATA[Category: git | yuan.li]]></title>
+  <link href="http://yuan.li/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://yuan.li/"/>
   <updated>2013-02-04T01:19:17+08:00</updated>
   <id>http://yuan.li/</id>
@@ -32,7 +32,7 @@
 
 <p>由于Xcode自动整合了git，因此在出现代码冲突时，可以非常方便的找到发生冲突的文件以及发生冲突的位置。另外，.xcodeproj也会经常发生冲突，通常情况，运行以下这个脚本就能解决.xcodeproj文件的冲突：</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -43,44 +43,50 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c">#!/bin/sh</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>&lt;/p&gt;
 </span><span class='line'>
-</span><span class='line'><span class="nv">projectfile</span><span class="o">=</span><span class="sb">`</span>find -d . -name <span class="s1">&#39;project.pbxproj&#39;</span><span class="sb">`</span>
-</span><span class='line'><span class="nv">projectdir</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> *.xcodeproj<span class="sb">`</span>
+</span><span class='line'>&lt;h1&gt;!/bin/sh&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;projectfile<span class="o">=</span>&lt;code&gt;find -d . -name <span class="s1">&#39;project.pbxproj&#39;</span>&lt;/code&gt;
+</span><span class='line'><span class="nv">projectdir</span><span class="o">=</span>&lt;code&gt;echo *.xcodeproj&lt;/code&gt;
 </span><span class='line'><span class="nv">projectfile</span><span class="o">=</span><span class="s2">&quot;${projectdir}/project.pbxproj&quot;</span>
 </span><span class='line'><span class="nv">tempfile</span><span class="o">=</span><span class="s2">&quot;${projectdir}/project.pbxproj.out&quot;</span>
-</span><span class='line'><span class="nv">savefile</span><span class="o">=</span><span class="s2">&quot;${projectdir}/project.pbxproj.mergesave&quot;</span>
+</span><span class='line'><span class="nv">savefile</span><span class="o">=</span><span class="s2">&quot;${projectdir}/project.pbxproj.mergesave&quot;</span>&lt;/p&gt;
 </span><span class='line'>
-</span><span class='line'>cat <span class="nv">$projectfile</span> | grep -v <span class="s2">&quot;&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD&quot;</span> | grep -v <span class="s2">&quot;=======&quot;</span> | grep -v <span class="s2">&quot;^&gt;&gt;&gt;&gt;&gt;&gt;&gt; &quot;</span> &gt; <span class="nv">$tempfile</span>
+</span><span class='line'>&lt;p&gt;cat <span class="nv">$projectfile</span> | grep -v <span class="s2">&quot;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD&quot;</span> | grep -v <span class="s2">&quot;=======&quot;</span> | grep -v <span class="s2">&quot;&lt;sup&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&lt;/sup&gt; &quot;</span> &gt; <span class="nv">$tempfile</span>
 </span><span class='line'>cp <span class="nv">$projectfile</span> <span class="nv">$savefile</span>
 </span><span class='line'>mv <span class="nv">$tempfile</span> <span class="nv">$projectfile</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>原理很简单，但是的确很实用。</p>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+原理很简单，但是的确很实用。</p>
 
 <h3>四、其他的一些小tips</h3>
 
-<p>尽管<code>git config</code>可以提供别名的支持，但是对于我这种懒人来说，这些命令还是太长了。因此，我在<code>~/.bashrc</code>下重新定义了几个关于git的别名：</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>尽管<code>git config</code>可以提供别名的支持，但是对于我这种懒人来说，这些命令还是太长了。因此，我在<code>~/.bashrc</code>下重新定义了几个关于git的别名：
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c">#=========git==========</span>
-</span><span class='line'><span class="nb">alias </span><span class="nv">gs</span><span class="o">=</span><span class="s1">&#39; git status -s&#39;</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;<span class="o">=========</span><span class="nv">git</span><span class="o">==========</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;alias <span class="nv">gs</span><span class="o">=</span><span class="s1">&#39; git status -s&#39;</span>
 </span><span class='line'><span class="nb">alias </span><span class="nv">ga</span><span class="o">=</span><span class="s1">&#39;git add&#39;</span>
 </span><span class='line'><span class="nb">alias </span><span class="nv">gco</span><span class="o">=</span><span class="s1">&#39;git checkout&#39;</span>
 </span><span class='line'><span class="nb">alias </span><span class="nv">gb</span><span class="o">=</span><span class="s1">&#39;git branch&#39;</span>
 </span><span class='line'><span class="nb">alias </span><span class="nv">gl</span><span class="o">=</span><span class="s1">&#39;git log --all --decorate --graph --color&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>.gitignore文件：</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -98,52 +104,33 @@
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># Xcode</span>
-</span><span class='line'>.DS_Store
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;Xcode&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;.DS_Store
 </span><span class='line'>build/
-</span><span class='line'>*.pbxuser
+</span><span class='line'>&lt;em&gt;.pbxuser
 </span><span class='line'>!default.pbxuser
-</span><span class='line'>*.mode1v3
+</span><span class='line'>&lt;/em&gt;.mode1v3
 </span><span class='line'>!default.mode1v3
-</span><span class='line'>*.mode2v3
+</span><span class='line'>&lt;em&gt;.mode2v3
 </span><span class='line'>!default.mode2v3
-</span><span class='line'>*.perspectivev3
+</span><span class='line'>&lt;/em&gt;.perspectivev3
 </span><span class='line'>!default.perspectivev3
-</span><span class='line'>*.xcworkspace
+</span><span class='line'>&lt;em&gt;.xcworkspace
 </span><span class='line'>!default.xcworkspace
 </span><span class='line'>xcuserdata
 </span><span class='line'>profile
-</span><span class='line'>*.moved-aside
+</span><span class='line'>&lt;/em&gt;.moved-aside
 </span><span class='line'>DerivedData
 </span><span class='line'>.idea/
-</span></code></pre></td></tr></table></div></figure>
-
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>最后，分享一个很好的中文git的<a href="http://gitbook.liuhui998.com/1_1.html">教程</a>。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Facebook-like activity indicator for iOS]]></title>
-    <link href="http://yuan.li/blog/2013/01/29/facebook-like-activity-indicator-for-ios/"/>
-    <updated>2013-01-29T16:43:00+08:00</updated>
-    <id>http://yuan.li/blog/2013/01/29/facebook-like-activity-indicator-for-ios</id>
-    <content type="html"><![CDATA[<p>前几天做了一个关于星际2的视频App，设计非常棒，已经提交了审核，预计很快就要上线了。项目中设计了一个自定义的loading view。等做好了以后，总感觉特眼熟，但就是想不起在哪儿见过。后来，才发现原来是facebook的loading gif（汗，又是拜GFW所赐）。索性把它的颜色调成了facebook的配色，就把它放到了github上了： <a href="https://github.com/yuanlizbyy/YLActivityIndicatorView">YLActivityIndicatorView</a>，它是基于Core Graphics的，还算比较高效，并且把绘制进程放到了NSRunLoopCommonModes下，因此当产生交互的时候，动画依然不会被阻塞哟：P</p>
-
-<p>效果如下图：</p>
-
-<p><img src="https://raw.github.com/yuanlizbyy/YLActivityIndicatorView/master/facebook_loading.gif"></p>
-
-<p>另外，跳跃的速度、view的尺寸、小点的个数都是可以通过代码直接配置的。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2013, Hello World!]]></title>
-    <link href="http://yuan.li/blog/2013/01/01/hello-world/"/>
-    <updated>2013-01-01T02:02:00+08:00</updated>
-    <id>http://yuan.li/blog/2013/01/01/hello-world</id>
-    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
