@@ -1,24 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[yuan.li]]></title>
-  <link href="http://yuan.li/atom.xml" rel="self"/>
-  <link href="http://yuan.li/"/>
-  <updated>2013-02-04T01:14:54+08:00</updated>
-  <id>http://yuan.li/</id>
-  <author>
-    <name><![CDATA[Yuan Li]]></name>
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>使用git进行iOS开发的一些实践经验 - yuan.li</title>
+    <meta name="author" content="Yuan Li">
     
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+	<meta name="description" content="使用git做为版本控制系统（VCS）来开发iOS程序也差不多有一年的时间了。使用的过程中，发现git真的是一个非常优秀的程序员工具，使用起来优雅、快捷、高效。下面就分享一些我的使用经验。 一、基本环境 iOS开发人员为两人，设置的有一个bare的中心服务器用于备份及代码同步。当然， &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+	<link href="/atom.xml" rel="alternate" title="yuan.li" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.ico" rel="shortcut icon">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+    <link href='http://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Amethysta' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <script type="text/javascript" src="/javascripts/jquery-tapir.js"></script>
+
+    <!-- remove or comment it to disable ajaxification -->   
+    <script src="/javascripts/ajaxify.js"></script>
+   
+    
+</head>
+
+
+<body>
+    <div id="wrapper">
+    <header id="header" class="inner"><!-- for more effects see _animate.scss -->
+<h1 class="animated bounceInDown">
+    <div id="headerbg">
+        Yuan Li
+    </div>
+</h1>
+<br>
+
+<ul id="social-links" style="text-align:center">
   
-  <entry>
-    <title type="html"><![CDATA[使用git进行iOS开发的一些实践经验]]></title>
-    <link href="http://yuan.li/blog/2013/02/04/shi-yong-gitjin-xing-ioskai-fa-de-%5B%3F%5D-xie-shi-jian-jing-yan/"/>
-    <updated>2013-02-04T01:01:00+08:00</updated>
-    <id>http://yuan.li/blog/2013/02/04/shi-yong-gitjin-xing-ioskai-fa-de-[?]-xie-shi-jian-jing-yan</id>
-    <content type="html"><![CDATA[<p>使用git做为版本控制系统（VCS）来开发iOS程序也差不多有一年的时间了。使用的过程中，发现git真的是一个非常优秀的程序员工具，使用起来优雅、快捷、高效。下面就分享一些我的使用经验。</p>
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+
+<!-- use full url including 'index.html' for navigation bar if you are using ajax -->
+<ul id="nav">
+	<li id="ajax"><a href="/index.html">Home</a></li>
+	<li id="ajax"><a href="/about">About</a></li>
+	<li id="ajax"><a href="/blog/archives/index.html">Archives</a></li>
+    <li><a href="/atom.xml">RSS</a></li>
+    
+    <li>
+    <div id="dark">
+        <form method="get" action="/search.html" id="search">
+            <input name="query" type="text" style="margin-top:20px;" size="40" placeholder="Search..." x-webkit-speech />
+        </form>
+    </div>
+    </li>
+        
+</ul>
+
+
+
+
+</header>
+
+<div id="toload">
+<!-- begin toload --> 
+    <div id="content" class="inner">
+        <article class="post">
+	<h2 class="title">使用git进行iOS开发的一些实践经验</h2>
+	<div class="entry-content"><p>使用git做为版本控制系统（VCS）来开发iOS程序也差不多有一年的时间了。使用的过程中，发现git真的是一个非常优秀的程序员工具，使用起来优雅、快捷、高效。下面就分享一些我的使用经验。</p>
 
 <h3>一、基本环境</h3>
 
@@ -120,31 +181,85 @@
 
 
 <p>最后，分享一个很好的中文git的<a href="http://gitbook.liuhui998.com/1_1.html">教程</a>。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Facebook-like activity indicator for iOS]]></title>
-    <link href="http://yuan.li/blog/2013/01/29/facebook-like-activity-indicator-for-ios/"/>
-    <updated>2013-01-29T16:43:00+08:00</updated>
-    <id>http://yuan.li/blog/2013/01/29/facebook-like-activity-indicator-for-ios</id>
-    <content type="html"><![CDATA[<p>前几天做了一个关于星际2的视频App，设计非常棒，已经提交了审核，预计很快就要上线了。项目中设计了一个自定义的loading view。等做好了以后，总感觉特眼熟，但就是想不起在哪儿见过。后来，才发现原来是facebook的loading gif（汗，又是拜GFW所赐）。索性把它的颜色调成了facebook的配色，就把它放到了github上了： <a href="https://github.com/yuanlizbyy/YLActivityIndicatorView">YLActivityIndicatorView</a>，它是基于Core Graphics的，还算比较高效，并且把绘制进程放到了NSRunLoopCommonModes下，因此当产生交互的时候，动画依然不会被阻塞哟：P</p>
+</div>
 
-<p>效果如下图：</p>
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2013/02/04/shi-yong-gitjin-xing-ioskai-fa-de-%5B%3F%5D-xie-shi-jian-jing-yan/#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
 
-<p><img src="https://raw.github.com/yuanlizbyy/YLActivityIndicatorView/master/facebook_loading.gif"></p>
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
 
-<p>另外，跳跃的速度、view的尺寸、小点的个数都是可以通过代码直接配置的。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2013, Hello World!]]></title>
-    <link href="http://yuan.li/blog/2013/01/01/hello-world/"/>
-    <updated>2013-01-01T02:02:00+08:00</updated>
-    <id>http://yuan.li/blog/2013/01/01/hello-world</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-</feed>
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
+    </div>
+    <footer id="footer">
+    <div style="display:inline">
+    Copyright &copy; 2013
+
+    Yuan Li
+. Powered by <a href="http://octopress.org">Octopress</a> 
+</div>
+
+
+    </footer>
+    <script src="/javascripts/fabric.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'yuanli';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://yuan.li/blog/2013/02/04/shi-yong-gitjin-xing-ioskai-fa-de-%5B%3F%5D-xie-shi-jian-jing-yan/';
+        var disqus_url = 'http://yuan.li/blog/2013/02/04/shi-yong-gitjin-xing-ioskai-fa-de-%5B%3F%5D-xie-shi-jian-jing-yan/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+<!-- end toload --> 
+</div>
+</div>
+<script src="/javascripts/jquery.ui.totop.js" type="text/javascript"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+;(function($){$().UItoTop({easingType:'easeOutCirc'});})(jQuery); 
+/*]]>*/
+</script><!-- remove it to remove the scroll to top button -->
+</body>
+</html>

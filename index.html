@@ -6,7 +6,7 @@
 	<title>yuan.li</title>
     <meta name="author" content="Yuan Li">
     
-	<meta name="description" content="Published on: Jan 29th, 2013 Tags: github, iOS 前几天做了一个关于星际2的视频App，设计非常棒，已经提交了审核，预计很快就要上线了。项目中设计了一个自定义的loading view。等做好了以后，总感觉特眼熟，但就是想不起在哪儿见过。后来， &hellip;">
+	<meta name="description" content="Published on: Feb 4th, 2013 Tags: 使用git做为版本控制系统（VCS）来开发iOS程序也差不多有一年的时间了。使用的过程中，发现git真的是一个非常优秀的程序员工具，使用起来优雅、快捷、高效。下面就分享一些我的使用经验。 一、基本环境 iOS开发人员为两人， &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -78,6 +78,147 @@
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/02/04/shi-yong-gitjin-xing-ioskai-fa-de-%5B%3F%5D-xie-shi-jian-jing-yan/">
+		
+			使用git进行iOS开发的一些实践经验</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-04T01:01:00+08:00" pubdate data-updated="true">Feb 4<span>th</span>, 2013</time></div>
+      <div class="tags">Tags: 
+
+</div>
+    </div>
+		<p>使用git做为版本控制系统（VCS）来开发iOS程序也差不多有一年的时间了。使用的过程中，发现git真的是一个非常优秀的程序员工具，使用起来优雅、快捷、高效。下面就分享一些我的使用经验。</p>
+
+<h3>一、基本环境</h3>
+
+<p>iOS开发人员为两人，设置的有一个bare的中心服务器用于备份及代码同步。当然，git也支持两台开发机之间的直接通信，之所以还要设置中心服务器，更多的是出于方便在家办公的考虑。与中心服务器通信时，我们也遵循先pull后push的原则，确保将冲突解决后，再push给中心服务器。</p>
+
+<h3>二、分支策略</h3>
+
+<p>git提供了非常先进便捷的分支操作管理功能。我们开发的过程中，主要参考了<a href="http://www.ruanyifeng.com/blog/2012/07/git.html">阮一峰的这篇文章</a>，设计了两个常驻分支：master与dev。master分支负责管理大的发布版本号，dev分支则是日常开发使用的分支。在需要进行一些bug fix或者新功能实验时，会从dev分支下checkout出一个新的分支进行开发，解决bug或完成新功能后，会merge回dev分支。如我们在开发<a href="https://itunes.apple.com/us/app/re-men-shi-pin-wang-shang/id527800185?mt=8">热门视频</a>的时候，需要实验录音评论的功能，就另外开了一个dev_record的分支进行开发，经过一段时间的开发，发现这个功能的效果还不错，就merge回了dev分支，最后merge到master分支进行了发布。在实验新功能的过程中，依然可以在dev分支下进行一些日常的bug fix以及页面调整等工作。通过分支来进行代码隔离，逻辑上清晰，使用也很方便。</p>
+
+<h3>三、冲突解决</h3>
+
+<p>由于Xcode自动整合了git，因此在出现代码冲突时，可以非常方便的找到发生冲突的文件以及发生冲突的位置。另外，.xcodeproj也会经常发生冲突，通常情况，运行以下这个脚本就能解决.xcodeproj文件的冲突：</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c">#!/bin/sh</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">projectfile</span><span class="o">=</span><span class="sb">`</span>find -d . -name <span class="s1">&#39;project.pbxproj&#39;</span><span class="sb">`</span>
+</span><span class='line'><span class="nv">projectdir</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> *.xcodeproj<span class="sb">`</span>
+</span><span class='line'><span class="nv">projectfile</span><span class="o">=</span><span class="s2">&quot;${projectdir}/project.pbxproj&quot;</span>
+</span><span class='line'><span class="nv">tempfile</span><span class="o">=</span><span class="s2">&quot;${projectdir}/project.pbxproj.out&quot;</span>
+</span><span class='line'><span class="nv">savefile</span><span class="o">=</span><span class="s2">&quot;${projectdir}/project.pbxproj.mergesave&quot;</span>
+</span><span class='line'>
+</span><span class='line'>cat <span class="nv">$projectfile</span> | grep -v <span class="s2">&quot;&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD&quot;</span> | grep -v <span class="s2">&quot;=======&quot;</span> | grep -v <span class="s2">&quot;^&gt;&gt;&gt;&gt;&gt;&gt;&gt; &quot;</span> &gt; <span class="nv">$tempfile</span>
+</span><span class='line'>cp <span class="nv">$projectfile</span> <span class="nv">$savefile</span>
+</span><span class='line'>mv <span class="nv">$tempfile</span> <span class="nv">$projectfile</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>原理很简单，但是的确很实用。</p>
+
+<h3>四、其他的一些小tips</h3>
+
+<p>尽管<code>git config</code>可以提供别名的支持，但是对于我这种懒人来说，这些命令还是太长了。因此，我在<code>~/.bashrc</code>下重新定义了几个关于git的别名：</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c">#=========git==========</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">gs</span><span class="o">=</span><span class="s1">&#39; git status -s&#39;</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">ga</span><span class="o">=</span><span class="s1">&#39;git add&#39;</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">gco</span><span class="o">=</span><span class="s1">&#39;git checkout&#39;</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">gb</span><span class="o">=</span><span class="s1">&#39;git branch&#39;</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">gl</span><span class="o">=</span><span class="s1">&#39;git log --all --decorate --graph --color&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>.gitignore文件：</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># Xcode</span>
+</span><span class='line'>.DS_Store
+</span><span class='line'>build/
+</span><span class='line'>*.pbxuser
+</span><span class='line'>!default.pbxuser
+</span><span class='line'>*.mode1v3
+</span><span class='line'>!default.mode1v3
+</span><span class='line'>*.mode2v3
+</span><span class='line'>!default.mode2v3
+</span><span class='line'>*.perspectivev3
+</span><span class='line'>!default.perspectivev3
+</span><span class='line'>*.xcworkspace
+</span><span class='line'>!default.xcworkspace
+</span><span class='line'>xcuserdata
+</span><span class='line'>profile
+</span><span class='line'>*.moved-aside
+</span><span class='line'>DerivedData
+</span><span class='line'>.idea/
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>最后，分享一个很好的中文git的<a href="http://gitbook.liuhui998.com/1_1.html">教程</a>。</p>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2013/02/04/shi-yong-gitjin-xing-ioskai-fa-de-%5B%3F%5D-xie-shi-jian-jing-yan//index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
 
 
     <article class="post">
